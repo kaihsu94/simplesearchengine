@@ -6,6 +6,7 @@
 
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="stylesheets/navbar.css" rel="stylesheet" media="screen">
+    <link href="stylesheets/style.scss" rel="stylesheet" media="screen">
 
 </head>
 <body>
@@ -19,36 +20,48 @@
             </a>
         </li>
         <li>
+            <input id="input_query" type="text" class="form-control"
+                   placeholder="enter query"/>
+            <button id="submit_query" type="button" class="btn btn-default">Submit</button>
+        </li>
+        <li>
             <p>First Filter</p>
             <ul>
-                <li><a href="/users">First Filter Item</a></li>
-                <li><a href="#">Second Filter Item</a></li>
-                <li><a href="#">Third Filter Item</a></li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val"> First Filter Item</li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Second Filter Item</li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Third Filter Item</li>
             </ul>
 
             <p>Second Filter</p>
             <ul>
-                <li><a href="#">First Filter Item</a></li>
-                <li><a href="#">Second Filter Item</a></li>
-                <li><a href="#">Third Filter Item</a></li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val"> First Filter Item</li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Second Filter Item</li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Third Filter Item</li>
             </ul>
 
             <p>Third Filter</p>
             <ul>
-                <li><a href="#">First Filter Item</a></li>
-                <li><a href="#">Second Filter Item</a></li>
-                <li><a href="#">Third Filter Item</a></li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val">First Filter Item</li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val">Second Filter Item</li>
+                <li><input type="checkbox" name="filter" title="myfilter" value="val">Third Filter Item</li>
             </ul>
 
         </li>
+
 
     </ul>
 
 </div>
 
+<div id="page-content-wrapper">
 
 
+
+</div>
+
+<script src="libs/jquery/jquery.min.js"></script>
 <script src="javascripts/navbar.js"></script>
+<script src="javascripts/main.js"></script>
 
 </body>
 </html>
