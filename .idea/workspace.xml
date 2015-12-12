@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="764ae71b-fed0-4476-afcd-459104c47c45" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/solr_tasks.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/data/english_tweets_copy.txt" afterPath="$PROJECT_DIR$/data/english_tweets_copy.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/german_tweets_copy.txt" afterPath="$PROJECT_DIR$/data/german_tweets_copy.txt" />
     </list>
     <ignored path="searchtwitter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +45,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09529148">
+            <state vertical-scroll-proportion="-3.2692308">
               <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="english_tweets_copy.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/english_tweets_copy.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8664422">
+              <caret line="2409" column="3177" selection-start-line="2409" selection-start-column="3177" selection-end-line="2409" selection-end-column="3177" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="german_tweets_copy.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/german_tweets_copy.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.740741">
+              <caret line="2387" column="2758" selection-start-line="2387" selection-start-column="2758" selection-end-line="2387" selection-end-column="2758" />
               <folding />
             </state>
           </provider>
@@ -105,26 +125,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbar.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/navbar.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -148,6 +148,8 @@
         <option value="$PROJECT_DIR$/public/javascripts/main.js" />
         <option value="$PROJECT_DIR$/data/english_tweets.txt" />
         <option value="$PROJECT_DIR$/solr_tasks.js" />
+        <option value="$PROJECT_DIR$/data/german_tweets_copy.txt" />
+        <option value="$PROJECT_DIR$/data/english_tweets_copy.txt" />
       </list>
     </option>
   </component>
@@ -648,14 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/japanese_tweets_copy.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.592592">
-          <caret line="20" column="58" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -698,8 +692,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09529148">
+        <state vertical-scroll-proportion="-3.2692308">
           <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/german_tweets_copy.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.740741">
+          <caret line="2387" column="2758" selection-start-line="2387" selection-start-column="2758" selection-end-line="2387" selection-end-column="2758" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/japanese_tweets_copy.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.592592">
+          <caret line="20" column="58" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/english_tweets_copy.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8664422">
+          <caret line="2409" column="3177" selection-start-line="2409" selection-start-column="3177" selection-end-line="2409" selection-end-column="3177" />
           <folding />
         </state>
       </provider>
