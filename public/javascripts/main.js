@@ -48,7 +48,7 @@ function query_server(facet_status) {
 
     $.ajax({
         method: 'GET',
-        url: 'index.html/solr',
+        url: '/solr',
         params: facet_status
     }).then(function successCallback(response) {
 
