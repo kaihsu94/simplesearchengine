@@ -48,16 +48,16 @@ function query_server(facet_status) {
 
     $.ajax({
         method: 'GET',
-        url: 'http://search_twitter.davidtowson.com'
-        //params: {keyword: word}
+        url: 'index.html/solr',
+        params: facet_status
     }).then(function successCallback(response) {
 
         $('test_output')[0].html = response;
 
-    }, function errorCallback(response) {
+    }, function errorCallback(err) {
 
-        $('test_output')[0].html = response;
-        
+        $('test_output')[0].html = err;
+
     });
 
 }
