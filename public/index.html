@@ -6,7 +6,7 @@
 
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="stylesheets/navbar.css" rel="stylesheet" media="screen">
-    <link href="stylesheets/style.scss" rel="stylesheet" media="screen">
+    <link href="stylesheets/style.css" rel="stylesheet" media="screen">
 
 </head>
 <body>
@@ -24,26 +24,33 @@
                    placeholder="enter query"/>
             <button id="submit_query" type="button" class="btn btn-default">Submit</button>
         </li>
+
+        <!--"Jeb Bush", "Ben Carson", "Chris Christie", "Ted Cruz", "Hillary Clinton"-->
+
         <li>
-            <p>First Filter</p>
+            <p>Candidates</p>
             <ul>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val"> First Filter Item</li>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Second Filter Item</li>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Third Filter Item</li>
+                <li><input type="checkbox" id="trump_sel" name="candidates_DonaldTrump" title="candidates_DonaldTrump" value="candidates_HillaryClinton">Donald Trump</li>
+                <li><input type="checkbox" id="bush_sel" name="candidates_JebBush" title="candidates_JebBush" value="candidates_HillaryClinton">Jeb Bush</li>
+                <li><input type="checkbox" id="carson_sel" name="candidates_BenCarson" title="candidates_BenCarson" value="candidates_HillaryClinton">Ben Carson</li>
+                <li><input type="checkbox" id="christie_sel" name="candidates_ChrisChristie" title="candidates_ChrisChristie" value="candidates_HillaryClinton">Chris Christie</li>
+                <li><input type="checkbox" id="cruz_sel" name="candidates_TedCruz" title="candidates_TedCruz" value="candidates_HillaryClinton">Ted Cruz</li>
+                <li><input type="checkbox" id="clinton_sel" name="candidates_HillaryClinton" title="candidates_HillaryClinton" value="candidates_HillaryClinton">Hillary Clinton</li>
             </ul>
 
-            <p>Second Filter</p>
+            <p>Language</p>
             <ul>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val"> First Filter Item</li>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Second Filter Item</li>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val"> Third Filter Item</li>
+                <li><input type="checkbox" id="eng_sel" name="language_English" title="language_English" value="language_English">English</li>
+                <li><input type="checkbox" id="de_sel" name="language_German" title="language_German" value="language_German">German</li>
+                <li><input type="checkbox" id="es_sel" name="language_Spanish" title="language_Spanish" value="language_Spanish">Spanish</li>
+                <li><input type="checkbox" id="zh_sel" name="language_Chinese" title="language_Chinese" value="language_Chinese">Chinese</li>
             </ul>
 
-            <p>Third Filter</p>
+            <p>Sentiment</p>
             <ul>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val">First Filter Item</li>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val">Second Filter Item</li>
-                <li><input type="checkbox" name="filter" title="myfilter" value="val">Third Filter Item</li>
+                <li><input type="checkbox" id="pos_sel" name="sentiment_Positive" title="sentiment_Positive" value="sentiment_Positive">Positive</li>
+                <li><input type="checkbox" id="neg_sel" name="sentiment_Negative" title="sentiment_Negative" value="sentiment_Negative">Negative</li>
+                <li><input type="checkbox" id="neu_sel" name="sentiment_Neutral" title="sentiment_Neutral" value="sentiment_Neutral">Neutral</li>
             </ul>
 
         </li>
@@ -55,7 +62,7 @@
 
 <div id="page-content-wrapper">
 
-
+    <p id="test_output"></p>
 
 </div>
 
