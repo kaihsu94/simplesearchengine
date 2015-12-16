@@ -52,11 +52,11 @@ function query_server(facet_status) {
         params: facet_status
     }).then(function successCallback(response) {
 
-        $('test_output')[0].innerHTML = response;
+        $('#test_output')[0].innerHTML = response;
 
     }, function errorCallback(err) {
 
-        $('test_output')[0].innerHTML = err;
+        $('#test_output')[0].innerHTML = err;
 
     });
 

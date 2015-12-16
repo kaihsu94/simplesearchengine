@@ -5,3 +5,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+#input_query #submit_query {
+  margin-left: 5%;
+}
