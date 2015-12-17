@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     var query = req.param('query');
     console.log(query);
     var trump_selected = req.param('trump_sel');
-    console.log(bush_selected);
+    //console.log(bush_selected);
     var bush_selected = req.param('bush_sel');
     var carson_selected = req.param('carson_sel');
     var christie_selected = req.param('christie_sel');
