@@ -59,26 +59,27 @@ router.get('/', function(req, res, next) {
 
     console.log(base_url);
 
-    base_url += "&wt=json&indent=true";
+    var num_of_results = 10;
 
-    //return base_url;
+    var return_url = base_url += "&rows=" + num_of_results;
+    return_url += "&wt=json&indent=true";
+
+    base_url += "&rows=10000&wt=json&indent=true";
 
 
-    /*
     $.ajax({
         method: 'GET',
-        url: '/solr',
-        data: facet_status
+        url: base_url
     }).then(function successCallback(response) {
 
-        $('#test_output')[0].innerHTML = response;
+        console.log("CALLBACK FROM HUGE SOLR REQUEST");
 
     }, function errorCallback(err) {
 
-        $('#test_output')[0].innerHTML = err;
+        console.log("CALLBACK ERROR FROM HUGE SOLR REQUEST");
 
     });
-    */
+    
 
     res.json({
         "solr_url":base_url
