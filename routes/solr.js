@@ -79,7 +79,7 @@ router.get('/', function(req, res, next) {
         console.log("CALLBACK ERROR FROM HUGE SOLR REQUEST");
 
     });
-    
+
 
     res.json({
         "solr_url":base_url
