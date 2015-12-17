@@ -68,7 +68,7 @@ function query_server(facet_status) {
         data: facet_status
     }).then(function successCallback(response) {
 
-        $('#solr-result-container')[0].src = response.solr_url;
+        $('#solr-result-iframe')[0].src = response.solr_url;
 
     }, function errorCallback(err) {
 

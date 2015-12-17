@@ -11,7 +11,7 @@ a {
   color: #00B7FF;
 }
 
-#map-container-globe, #map-container-usa #solr-result-container {
+#map-container-globe, #map-container-usa #solr-result-container #solr-result-iframe {
   width: 1000px;
   height: 600px;
 }
