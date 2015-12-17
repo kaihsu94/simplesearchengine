@@ -32,6 +32,11 @@ router.get('/', function(req, res, next) {
 
     console.log(base_url);
 
+    var is_pos = pos_selected == 'true';
+    var is_pos_two = pos_selected == true;
+    console.log("DEBUG: " + "is_pos is: " + is_pos);
+    console.log("DEBUG: " + "is_pos_two is: " + is_pos_two);
+
     if (!pos_selected && !neg_selected && !neu_selected) {
 
     } else if (!pos_selected && !neg_selected && neu_selected){
