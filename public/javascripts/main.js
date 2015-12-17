@@ -1,4 +1,13 @@
 
+var map_globe = new Datamap({element: document.getElementById('map-container-globe')});
+
+var map_usa = new Datamap({element: document.getElementById('map-container-usa')});
+
+$(window).on('resize', function() {
+    map_globe.resize();
+    map_usa.resize();
+});
+
 $('#submit_query').click(function() {
 
     var facet_status = get_filter_inputs();

@@ -1,7 +1,17 @@
+
+html, body, #wrapper, #page-content-wrapper {
+  height:100%;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#map-container-globe #map-container-usa {
+  width: 1000px;
+  height: 600px;
 }
