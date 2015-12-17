@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
     var base_url = "http://soxkeepyouwarm.davidtowson.com:8983/solr/project_c/select?";
 
     // q=text_en%3ATrump%0A
-    base_url += + "q=text_en%3A" + query + "%0A";
+    base_url += "q=text_en%3A" + query + "%0A";
 
     console.log(base_url);
 
