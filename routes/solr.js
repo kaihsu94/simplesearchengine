@@ -4,6 +4,69 @@ var router = express.Router();
 var solr = require('solr-client');
 var client = solr.createClient();
 /* GET users listing. */
+
+
+/*var states = [{"Alabama", "Ala", "AL"},
+    "Alaska,	Alaska,	AK
+    American Samoa,	 	AS
+    Arizona,	Ariz.,	AZ
+    Arkansas,	Ark.,	AR
+    California,	Calif.,	CA
+    Colorado,	Colo.,	CO
+    Connecticut,	Conn.,	CT
+    Delaware,	Del.,	DE
+    Dist. of Columbia,	D.C.	DC
+    Florida,	Fla.,	FL
+    Georgia,	Ga.,	GA
+    Guam,	Guam,	GU
+    Hawaii,	Hawaii,	HI
+    Idaho,	Idaho,	ID
+    Illinois,	Ill.	IL
+    Indiana, Ind., IN
+    Iowa,	Iowa,	IA
+    Kansas,	Kans.,	KS
+    Kentucky, Ky.,	KY
+    Louisiana, La.,	LA
+    Maine, Maine,ME
+    Maryland, Md.,	MD
+    Marshall Islands, MH
+    Massachusetts,	Mass.,	MA
+    Michigan,	Mich.,	MI
+    Micronesia,	 	FM
+    Minnesota,	Minn.,	MN
+    Mississippi,	Miss.,	MS
+    Missouri,	Mo.,	MO
+    Montana,	Mont.,	MT
+    Nebraska,	Nebr.,	NE
+    Nevada,	Nev.	NV,
+    New Hampshire	N.H.,	NH
+    New Jersey,	N.J.,	NJ
+    New Mexico	N.M.,	NM
+    New York,	N.Y.,	NY
+    North Carolina,	N.C.,	NC
+    North Dakota,	N.D.,	ND
+    Northern Marianas,	 	MP
+    Ohio,	Ohio,	OH,
+    Oklahoma,	Okla.,	OK
+    Oregon,	Ore.,	OR,
+    Palau,	 	PW,
+    Pennsylvania,	Pa.,	PA
+    Puerto Rico,	P.R.,	PR
+    Rhode Island,	R.I.,	RI
+    South Carolina,	S.C.,	SC
+    South Dakota,	S.D.,	SD
+    Tennessee,	Tenn.,	TN
+    Texas,	Tex.,	TX
+    Utah,	Utah,	UT
+    Vermont,	Vt.,	VT
+    Virginia,	Va.,	VA
+    Virgin Islands,	V.I.,	VI
+    Washington,	Wash.,	WA
+    West Virginia,	W.Va.,	WV
+    Wisconsin,	Wis.,	WI
+    Wyoming,	Wyo.,	WY]*/
+
+
 router.get('/', function(req, res, next) {
 
     var query = req.param('query');
@@ -67,23 +130,48 @@ router.get('/', function(req, res, next) {
     base_url += "&rows=10000&wt=json&indent=true";
 
 
-    /*$.ajax({
-        method: 'GET',
-        url: base_url
-    }).then(function successCallback(response) {
+    var test_url = "http://soxkeepyouwarm.davidtowson.com:8983/solr/project_c/select?" +
+        "q=text_en%3A" + query + "%0A";
 
-        console.log("CALLBACK FROM HUGE SOLR REQUEST");
+    var temp_list = ["ny", "ca"];
+    var result_list = [];
 
-    }, function errorCallback(err) {
+    for (var i = 0; i < temp_list.length; i ++) {
+        var current_state = temp_list[i];
+        var local_query = test_url;
+        local_query += "&fq=location%3A+*New%5C+York*";
+        local_query += "&rows=0&wt=json&indent=true";
 
-        console.log("CALLBACK ERROR FROM HUGE SOLR REQUEST");
+        $.ajax({
+            method: 'GET',
+            url: local_query
+        }).then(function successCallback(response) {
 
-    });*/
+            var result = {"state":current_state,
+                "count":response.numFound};
 
+            result_list.append(result);
+
+            console.log("current state" + current_state +
+                " num found is: " + response.numFound);
+
+        }, function errorCallback(err) {
+
+            console.log("CALLBACK ERROR FROM HUGE SOLR REQUEST");
+            res.json({
+                "solr_url": err
+            });
+
+        });
+    }
 
     res.json({
-        "solr_url":base_url
+        "solr_url":return_url,
+        "state_list":result_list
     });
+
+
+
 
 });
 
