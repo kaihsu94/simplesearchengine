@@ -67,7 +67,7 @@ router.get('/', function(req, res, next) {
     base_url += "&rows=10000&wt=json&indent=true";
 
 
-    $.ajax({
+    /*$.ajax({
         method: 'GET',
         url: base_url
     }).then(function successCallback(response) {
@@ -78,7 +78,7 @@ router.get('/', function(req, res, next) {
 
         console.log("CALLBACK ERROR FROM HUGE SOLR REQUEST");
 
-    });
+    });*/
 
 
     res.json({
