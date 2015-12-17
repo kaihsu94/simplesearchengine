@@ -33,25 +33,27 @@ router.get('/', function(req, res, next) {
     console.log(base_url);
 
     var is_pos = pos_selected == 'true';
-    var is_pos_two = pos_selected == true;
-    console.log("DEBUG: " + "is_pos is: " + is_pos);
-    console.log("DEBUG: " + "is_pos_two is: " + is_pos_two);
+    var is_neg = neg_selected == 'true';
+    var is_neu = neu_selected == 'true';
+    //var is_pos_two = pos_selected == true;
+    //console.log("DEBUG: " + "is_pos is: " + is_pos);
+    //console.log("DEBUG: " + "is_pos_two is: " + is_pos_two);
 
     if (!pos_selected && !neg_selected && !neu_selected) {
 
-    } else if (!pos_selected && !neg_selected && neu_selected){
+    } else if (!is_pos && !is_neg && is_neu){
         base_url += "&fq=sentiment%3A%5B0+TO+0%5D";
-    } else if (!pos_selected && neg_selected && !neu_selected){
+    } else if (!is_pos && is_neg && !is_neu){
         base_url += "&fq=sentiment%3A%5B-1+TO+-.0000001%5D";
-    } else if (!pos_selected && neg_selected && neu_selected){
+    } else if (!is_pos && is_neg && is_neu){
         base_url += "&fq=sentiment%3A%5B-1+TO+0%5D";
-    } else if (pos_selected && !neg_selected && !neu_selected) {
+    } else if (is_pos && !is_neg && !is_neu) {
         base_url += "&fq=sentiment%3A%5B0.0001+TO+1%5D";
-    } else if (pos_selected && !neg_selected && neu_selected) {
+    } else if (is_pos && !is_neg && is_neu) {
         base_url += "&fq=sentiment%3A%5B0+TO+1%5D";
-    } else if (pos_selected && neg_selected && !neu_selected) {
+    } else if (is_pos && is_neg && !is_neu) {
 
-    } else if (pos_selected && neg_selected && neu_selected) {
+    } else if (is_pos && is_neg && is_neu) {
 
     }
 
