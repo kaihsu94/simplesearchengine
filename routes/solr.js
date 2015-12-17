@@ -92,8 +92,30 @@ router.get('/', function(req, res, next) {
 
     var base_url = "http://soxkeepyouwarm.davidtowson.com:8983/solr/project_c/select?";
 
+
+
+    var is_eng = eng_selected == 'true';
+    var is_de = de_selected == 'true';
+    var is_es = es_selected == 'true';
+    var is_zh = zh_selected == 'true';
+
+    if (is_eng){
+        base_url += "q=text_en%3A" + query + "%0A";
+    } else if (is_de) {
+        base_url += "q=text_de%3A" + query + "%0A";
+    } else if (is_es) {
+        base_url += "q=text_es%3A" + query + "%0A";
+    } else if (is_zh) {
+        base_url += "q=text_zh%3A" + query + "%0A";
+    } else {
+        base_url += "q=text_en%3A" + query + "%0A";
+    }
+
+    
+    /*
     // q=text_en%3ATrump%0A
-    base_url += "q=text_en%3A" + query + "%0A";
+    bas_url = "q=text_en%3A" + query + "%0A";
+    base_url += "q=text_en%3A" + query + "%0A";*/
 
     console.log(base_url);
 
@@ -121,6 +143,9 @@ router.get('/', function(req, res, next) {
     } else if (is_pos && is_neg && is_neu) {
 
     }
+
+
+
 
     console.log(base_url);
 
