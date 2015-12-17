@@ -26,6 +26,7 @@ router.get('/', function(req, res, next) {
     var neg_selected = req.param('neg_sel');
     var neu_selected = req.param('neu_sel');
 
+    /*
     var solr_query = 'text_en:trump';
     var solr_response;
     client.query(solr_query, function(err, response) {
@@ -38,12 +39,12 @@ router.get('/', function(req, res, next) {
             responseObj.response.docs[0].title_t);
         console.log('Second doc title: ' +
             responseObj.response.docs[1].title_t);
-    });
+    });*/
 
-    res.json(JSON.stringify({
-        "response":"query is: " + solr_query,
+    res.json({
+        "response":"query is: " + query,
         "trump_selected":trump_selected
-    }));
+    });
 
 });
 
