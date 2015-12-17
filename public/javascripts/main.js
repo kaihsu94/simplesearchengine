@@ -5,7 +5,7 @@ var map_globe = new Datamap({
 
 var map_usa = new Datamap({
     element: document.getElementById('map-container-usa'),
-    scope: 'use'});
+    scope: 'usa'});
 
 $(window).on('resize', function() {
     map_globe.resize();
