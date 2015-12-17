@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
     var neg_selected = req.param('neg_sel');
     var neu_selected = req.param('neu_sel');
 
-    /*
+
     var solr_query = 'text_en:trump';
     var solr_response;
     client.query(solr_query, function(err, response) {
