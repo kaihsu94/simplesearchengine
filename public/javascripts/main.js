@@ -1,7 +1,11 @@
 
-var map_globe = new Datamap({element: document.getElementById('map-container-globe')});
+var map_globe = new Datamap({
+    element: document.getElementById('map-container-globe'),
+    scope: 'world'});
 
-var map_usa = new Datamap({element: document.getElementById('map-container-usa')});
+var map_usa = new Datamap({
+    element: document.getElementById('map-container-usa'),
+    scope: 'use'});
 
 $(window).on('resize', function() {
     map_globe.resize();
@@ -16,6 +20,8 @@ $('#submit_query').click(function() {
 
 
 function get_filter_inputs() {
+
+    var query = $('#input_query')[0].innerHTML;
 
     var trump_selected = $("#trump_sel")[0].checked;
     var bush_selected = $('#bush_sel')[0].checked;
@@ -34,6 +40,7 @@ function get_filter_inputs() {
     var neu_selected = $('#neu_sel')[0].checked;
 
     var facet_status = {
+        "query": query,
         "trump_sel":trump_selected,
         "bush_sel":bush_selected,
         "carson_sel":carson_selected,

@@ -11,7 +11,7 @@ a {
   color: #00B7FF;
 }
 
-#map-container-globe #map-container-usa {
+#map-container-globe, #map-container-usa {
   width: 1000px;
   height: 600px;
 }
