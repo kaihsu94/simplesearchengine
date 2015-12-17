@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var solr = require('solr');
+var solr = require('solr-client');
 var client = solr.createClient();
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
@@ -27,7 +26,12 @@ router.get('/', function(req, res, next) {
     var neu_selected = req.param('neu_sel');
 
 
-    var solr_query = 'text_en:trump';
+    client
+        .search('q=trump', function(err, obj){
+            console.log(err, obj);
+        })
+
+    /*var solr_query = 'text_en:trump';
     var solr_response;
     client.query(solr_query, function(err, response) {
         if (err) throw err;
