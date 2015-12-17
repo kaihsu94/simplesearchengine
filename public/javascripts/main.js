@@ -21,7 +21,8 @@ $('#submit_query').click(function() {
 
 function get_filter_inputs() {
 
-    var query = $('#input_query')[0].innerHTML;
+    var temp = $('#input_query');
+    //var query = [0].innerHTML;
 
     var trump_selected = $("#trump_sel")[0].checked;
     var bush_selected = $('#bush_sel')[0].checked;
