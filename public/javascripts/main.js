@@ -80,25 +80,27 @@ function query_server(facet_status) {
     var neg_selected = $('#neg_sel')[0].checked;
     var neu_selected = $('#neu_sel')[0].checked;
 
+    /* {
+     query: query,
+     trump_sel: trump_selected,
+     bush_sel: bush_selected,
+     carson_sel: carson_selected,
+     christie_sel: christie_selected,
+     cruz_sel: cruz_selected,
+     clinton_sel: clinton_selected,
+     eng_sel: eng_selected,
+     de_sel: de_selected,
+     es_sel: es_selected,
+     zh_sel: zh_selected,
+     pos_sel: pos_selected,
+     neg_sel: neg_selected,
+     neu_sel: neu_selected
+     } */
+
     $.ajax({
         method: 'GET',
         url: '/solr',
-        params: {
-            query: query,
-            trump_sel: trump_selected,
-            bush_sel: bush_selected,
-            carson_sel: carson_selected,
-            christie_sel: christie_selected,
-            cruz_sel: cruz_selected,
-            clinton_sel: clinton_selected,
-            eng_sel: eng_selected,
-            de_sel: de_selected,
-            es_sel: es_selected,
-            zh_sel: zh_selected,
-            pos_sel: pos_selected,
-            neg_sel: neg_selected,
-            neu_sel: neu_selected
-        }
+        params: {test:"test"}
     }).then(function successCallback(response) {
 
         $('#test_output')[0].innerHTML = response;
