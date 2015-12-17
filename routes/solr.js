@@ -129,6 +129,10 @@ router.get('/', function(req, res, next) {
     var return_url = base_url += "&rows=" + num_of_results;
     return_url += "&wt=json&indent=true";
 
+    res.json({
+        "solr_url":return_url
+    });
+
     base_url += "&rows=10000&wt=json&indent=true";
 
 
