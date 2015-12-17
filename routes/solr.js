@@ -25,29 +25,52 @@ router.get('/', function(req, res, next) {
     var neg_selected = req.param('neg_sel');
     var neu_selected = req.param('neu_sel');
 
+    var base_url = "http://soxkeepyouwarm.davidtowson.com:8983/solr/project_c/select?";
 
-    client
-        .search('q=trump', function(err, obj){
-            console.log(err, obj);
-        })
+    base_url += + "q=text_en%3A";
 
-    /*var solr_query = 'text_en:trump';
-    var solr_response;
-    client.query(solr_query, function(err, response) {
-        if (err) throw err;
-        var responseObj = JSON.parse(response);
-        solr_response = responseObj;
-        console.log('A search for "' + solr_query + '" returned ' +
-            responseObj.response.numFound + ' documents.');
-        console.log('First doc title: ' +
-            responseObj.response.docs[0].title_t);
-        console.log('Second doc title: ' +
-            responseObj.response.docs[1].title_t);
-    });*/
+    if (!pos_selected && !neg_selected && !neu_selected) {
+
+    } else if (!pos_selected && !neg_selected && neu_selected){
+        base_url += "&fq=sentiment%3A%5B0+TO+0%5D";
+    } else if (!pos_selected && neg_selected && !neu_selected){
+        base_url += "&fq=sentiment%3A%5B-1+TO+-.0000001%5D";
+    } else if (!pos_selected && neg_selected && neu_selected){
+        base_url += "&fq=sentiment%3A%5B-1+TO+0%5D";
+    } else if (pos_selected && !neg_selected && !neu_selected) {
+        base_url += "&fq=sentiment%3A%5B0.0001+TO+1%5D";
+    } else if (pos_selected && !neg_selected && neu_selected) {
+        base_url += "&fq=sentiment%3A%5B0+TO+1%5D";
+    } else if (pos_selected && neg_selected && !neu_selected) {
+
+    } else if (pos_selected && neg_selected && neu_selected) {
+
+    }
+
+
+    base_url += "&wt=json&indent=true";
+
+    //return base_url;
+
+
+    /*
+    $.ajax({
+        method: 'GET',
+        url: '/solr',
+        data: facet_status
+    }).then(function successCallback(response) {
+
+        $('#test_output')[0].innerHTML = response;
+
+    }, function errorCallback(err) {
+
+        $('#test_output')[0].innerHTML = err;
+
+    });
+    */
 
     res.json({
-        "response":"query is: " + query,
-        "trump_selected":trump_selected
+        "solr_url":base_url
     });
 
 });
