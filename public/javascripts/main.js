@@ -100,9 +100,7 @@ function query_server(facet_status) {
     $.ajax({
         method: 'GET',
         url: '/solr',
-        data: {
-            format: 'json'
-        }
+        data: facet_status
     }).then(function successCallback(response) {
 
         $('#test_output')[0].innerHTML = response;
