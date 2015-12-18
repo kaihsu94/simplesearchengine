@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
-var solr = require('solr-client');
-var client = solr.createClient();
+var $ = require('jquery');
+//var solr = require('solr-client');
+//var client = solr.createClient();
 /* GET users listing. */
 
 
