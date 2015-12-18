@@ -101,15 +101,15 @@ router.get('/', function(req, res, next) {
     var is_zh = zh_selected == 'true';
 
     if (is_eng){
-        base_url += "q=text_en%3A" + query + "%0A";
+        base_url += "q=text_en%3A" + query.replace(' ', '+') + "%0A";
     } else if (is_de) {
-        base_url += "q=text_de%3A" + query + "%0A";
+        base_url += "q=text_de%3A" + query.replace(' ', '+') + "%0A";
     } else if (is_es) {
-        base_url += "q=text_es%3A" + query + "%0A";
+        base_url += "q=text_es%3A" + query.replace(' ', '+') + "%0A";
     } else if (is_zh) {
-        base_url += "q=text_zh%3A" + query + "%0A";
+        base_url += "q=text_zh%3A" + query.replace(' ', '+') + "%0A";
     } else {
-        base_url += "q=text_en%3A" + query + "%0A";
+        base_url += "q=text_en%3A" + query.replace(' ', '+') + "%0A";
     }
 
     console.log(base_url);
@@ -221,7 +221,7 @@ router.get('/', function(req, res, next) {
         local_query += ("&fq=location%3A+(*" +
             current_state_name + "*" + "+OR+*%2C%5C+" +
             current_state_code + ")");
-        
+
         local_query += "&rows=0&wt=json&indent=true";
 
         console.log("QUERY IS: " + local_query);
