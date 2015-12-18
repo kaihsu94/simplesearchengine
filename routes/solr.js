@@ -159,11 +159,11 @@ router.get('/', function(req, res, next) {
     // &fq=location%3A+(*New%5C+York*+OR+*N.Y*) New York or N.Y
 
 
-    res.json({
+    /*res.json({
         "solr_url":"test",
         "state_list":"test",
         "error":"none"
-    });
+    });*/
 
     var result_list = [];
 
@@ -181,6 +181,12 @@ router.get('/', function(req, res, next) {
         console.log("QUERY IS: " + local_query);
 
         http.get(local_query, function(response) {
+
+            res.json({
+                "solr_url":"test",
+                "state_list":"test",
+                "error":"none"
+            });
 
             console.log("Got response: " + response.statusCode);
 
