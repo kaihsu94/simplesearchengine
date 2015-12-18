@@ -218,7 +218,10 @@ router.get('/', function(req, res, next) {
         console.log("new state name is: " + current_state_name);
 
         var local_query = test_url;
-        local_query += ("&fq=location%3A+(*" + current_state_name + "*)");
+        local_query += ("&fq=location%3A+(*" +
+            current_state_name + "*" + "+OR+*%2C%5C+" +
+            current_state_code + ")");
+        
         local_query += "&rows=0&wt=json&indent=true";
 
         console.log("QUERY IS: " + local_query);
