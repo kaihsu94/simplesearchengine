@@ -117,9 +117,6 @@ router.get('/', function(req, res, next) {
     var is_pos = pos_selected == 'true';
     var is_neg = neg_selected == 'true';
     var is_neu = neu_selected == 'true';
-    //var is_pos_two = pos_selected == true;
-    //console.log("DEBUG: " + "is_pos is: " + is_pos);
-    //console.log("DEBUG: " + "is_pos_two is: " + is_pos_two);
 
     if (!pos_selected && !neg_selected && !neu_selected) {
 
@@ -145,10 +142,6 @@ router.get('/', function(req, res, next) {
 
     var return_url = base_url += "&rows=" + num_of_results;
     return_url += "&wt=json&indent=true";
-
-    //res.json({
-    //    "solr_url":return_url
-    //});
 
     base_url += "&rows=10000&wt=json&indent=true";
 
@@ -220,7 +213,7 @@ router.get('/', function(req, res, next) {
         var current_state_synonyms = state_list[i];
         var current_state_name = current_state_synonyms[0];
         var current_state_code = current_state_synonyms[2];
-        current_state_name.replace(' ', '%5C+');
+        current_state_name = current_state_name.replace(' ', '%5C+');
 
         console.log("new state name is: " + current_state_name);
 
@@ -232,40 +225,14 @@ router.get('/', function(req, res, next) {
 
         handle_http_request(local_query, result_list, return_data, return_url, current_state_code, res);
 
-        /*http.get(local_query, function(response) {
-
-            console.log("Got response: " + response.statusCode);
-
-            response.on("data", function(chunk) {
-                var json_response = JSON.parse(chunk);
-                console.log("BODY: " + json_response.responseHeader.status);
-                //console.log("num found is: " + json_response.response.numFound);
-                var result = {"state":current_state_name,
-                "count":json_response.response.numFound};
-                result_list.push(result);
-
-                if (result_list.length == state_list.length) {
-                    console.log("RES ABOUT TO BE SENT");
-                    res.json({
-                        "solr_url":return_url,
-                        "state_list":result_list,
-                        "error":"none"
-                    });
-                }
-            });
-
-        }).on('error', function(e) {
-            console.log("Got error: " + e.message);
-        });*/
-
     }
-
 
 });
 
 
 function handle_http_request(local_query, result_list, return_data, return_url, current_state_code, res) {
 
+    console.log("local query is: " + local_query);
     http.get(local_query, function(response) {
 
         console.log("Got response: " + response.statusCode);
