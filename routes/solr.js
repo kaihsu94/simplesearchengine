@@ -163,6 +163,7 @@ router.get('/', function(req, res, next) {
     for (var i = 0; i < state_list.length; i ++) {
         var current_state_synonyms = state_list[i];
         var current_state_name = current_state_synonyms[0];
+        var current_state_code = current_state_synonyms[2];
         current_state_name.replace(' ', '%5C+');
 
         console.log("new state name is: " + current_state_name);
@@ -173,7 +174,7 @@ router.get('/', function(req, res, next) {
 
         console.log("QUERY IS: " + local_query);
 
-        handle_http_request(local_query, result_list, return_url, current_state_name, res);
+        handle_http_request(local_query, result_list, return_url, current_state_code, res);
 
         /*http.get(local_query, function(response) {
 
@@ -207,7 +208,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-function handle_http_request(local_query, result_list, return_url, current_state_name, res) {
+function handle_http_request(local_query, result_list, return_url, current_state_code, res) {
 
     http.get(local_query, function(response) {
 
@@ -217,7 +218,7 @@ function handle_http_request(local_query, result_list, return_url, current_state
             var json_response = JSON.parse(chunk);
             console.log("BODY: " + json_response.responseHeader.status);
             //console.log("num found is: " + json_response.response.numFound);
-            var result = {"state":current_state_name,
+            var result = {"state":current_state_code,
                 "count":json_response.response.numFound};
             result_list.push(result);
 
