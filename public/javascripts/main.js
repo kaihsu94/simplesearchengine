@@ -291,6 +291,7 @@ function query_server(facet_status) {
     }).then(function successCallback(response) {
 
         $('#solr-result-iframe')[0].src = response.solr_url;
+        update_map(response.state_list)
 
     }, function errorCallback(err) {
 
@@ -300,207 +301,207 @@ function query_server(facet_status) {
 
 }
 
-function update_map() {
+function update_map(state_list) {
     map_usa.updateChoropleth({
         "AZ": {
             "fillKey": "Republican",
-            "electoralVotes": 5
+            "electoralVotes": state_list['AZ']
         },
         "CO": {
             "fillKey": "Light Democrat",
-            "electoralVotes": 5
+            "electoralVotes": state_list['CO']
         },
         "DE": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['DE']
         },
         "FL": {
             "fillKey": "UNDECIDED",
-            "electoralVotes": 29
+            "electoralVotes": state_list['FL']
         },
         "GA": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['GA']
         },
         "HI": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['HI']
         },
         "ID": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['ID']
         },
         "IL": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['IL']
         },
         "IN": {
             "fillKey": "Republican",
-            "electoralVotes": 11
+            "electoralVotes": state_list['IN']
         },
         "IA": {
             "fillKey": "Light Democrat",
-            "electoralVotes": 11
+            "electoralVotes": state_list['IA']
         },
         "KS": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['KS']
         },
         "KY": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['KY']
         },
         "LA": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['LA']
         },
         "MD": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['MD']
         },
         "ME": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['ME']
         },
         "MA": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['MA']
         },
         "MN": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['MN']
         },
         "MI": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['MI']
         },
         "MS": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['MS']
         },
         "MO": {
             "fillKey": "Republican",
-            "electoralVotes": 13
+            "electoralVotes": state_list['MO']
         },
         "MT": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['MT']
         },
         "NC": {
             "fillKey": "Light Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['NC']
         },
         "NE": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['NE']
         },
         "NV": {
             "fillKey": "Heavy Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['NV']
         },
         "NH": {
             "fillKey": "Light Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['NH']
         },
         "NJ": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['NJ']
         },
         "NY": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['NY']
         },
         "ND": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['ND']
         },
         "NM": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['NM']
         },
         "OH": {
             "fillKey": "UNDECIDED",
-            "electoralVotes": 32
+            "electoralVotes": state_list['OH']
         },
         "OK": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['OK']
         },
         "OR": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['OR']
         },
         "PA": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['PA']
         },
         "RI": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['RI']
         },
         "SC": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['SC']
         },
         "SD": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['SD']
         },
         "TN": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['TN']
         },
         "TX": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['TX']
         },
         "UT": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['UT']
         },
         "WI": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['WI']
         },
         "VA": {
             "fillKey": "Light Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['VA']
         },
         "VT": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['VT']
         },
         "WA": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['WA']
         },
         "WV": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['WV']
         },
         "WY": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['WY']
         },
         "CA": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['CA']
         },
         "CT": {
             "fillKey": "Democrat",
-            "electoralVotes": 32
+            "electoralVotes": state_list['CT']
         },
         "AK": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['AK']
         },
         "AR": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['AR']
         },
         "AL": {
             "fillKey": "Republican",
-            "electoralVotes": 32
+            "electoralVotes": state_list['AL']
         }
     });
 }
