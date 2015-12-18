@@ -180,7 +180,7 @@ router.get('/', function(req, res, next) {
 
             res.on("data", function(chunk) {
                 console.log("BODY: " + chunk);
-                console.log("num found is: " + chunk.response.numFound);
+                console.log("num found is: " + chunk.response);
                 var result = {"state":current_state_name,
                 "count":chunk.response.numFound};
                 result_list.append(result);
