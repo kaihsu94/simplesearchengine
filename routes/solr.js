@@ -182,11 +182,11 @@ router.get('/', function(req, res, next) {
 
         http.get(local_query, function(response) {
 
-            res.json({
+            /*res.json({
                 "solr_url":"test",
                 "state_list":"test",
                 "error":"none"
-            });
+            });*/
 
             console.log("Got response: " + response.statusCode);
 
@@ -199,6 +199,7 @@ router.get('/', function(req, res, next) {
                 result_list.push(result);
 
                 if (result_list.length == state_list.length) {
+                    console.log("RES ABOUT TO BE SENT");
                     res.json({
                         "solr_url":return_url,
                         "state_list":result_list,
