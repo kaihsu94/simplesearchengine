@@ -173,11 +173,13 @@ router.get('/', function(req, res, next) {
 
         console.log("QUERY IS: " + local_query);
 
-        http.get(local_query, function(response) {
+        handle_http_request(local_query, result_list, return_url, current_state_name, res);
+
+        /*http.get(local_query, function(response) {
 
             console.log("Got response: " + response.statusCode);
 
-            response.on("data", function(chunk, current_state_name) {
+            response.on("data", function(chunk) {
                 var json_response = JSON.parse(chunk);
                 console.log("BODY: " + json_response.responseHeader.status);
                 //console.log("num found is: " + json_response.response.numFound);
@@ -197,11 +199,41 @@ router.get('/', function(req, res, next) {
 
         }).on('error', function(e) {
             console.log("Got error: " + e.message);
-        });
+        });*/
 
     }
 
 
 });
+
+
+function handle_http_request(local_query, result_list, return_url, current_state_name, res) {
+
+    http.get(local_query, function(response) {
+
+        console.log("Got response: " + response.statusCode);
+
+        response.on("data", function(chunk) {
+            var json_response = JSON.parse(chunk);
+            console.log("BODY: " + json_response.responseHeader.status);
+            //console.log("num found is: " + json_response.response.numFound);
+            var result = {"state":current_state_name,
+                "count":json_response.response.numFound};
+            result_list.push(result);
+
+            if (result_list.length == state_list.length) {
+                console.log("RES ABOUT TO BE SENT");
+                res.json({
+                    "solr_url":return_url,
+                    "state_list":result_list,
+                    "error":"none"
+                });
+            }
+        });
+
+    }).on('error', function(e) {
+        console.log("Got error: " + e.message);
+    });
+}
 
 module.exports = router;
