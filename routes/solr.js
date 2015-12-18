@@ -68,6 +68,9 @@ var state_list = [["Alabama","Ala.","AL"],
     ["Wyoming", "Wyo.", "WY"]];
 
 
+
+
+
 router.get('/', function(req, res, next) {
 
     var query = req.param('query');
@@ -160,6 +163,59 @@ router.get('/', function(req, res, next) {
 
     var result_list = [];
 
+    var return_data = {
+        "AZ": "",
+        "CO": "",
+        "DE": "",
+        "FL": "",
+        "GA": "",
+        "HI": "",
+        "ID": "",
+        "IL": "",
+        "IN": "",
+        "IA": "",
+        "KS": "",
+        "KY": "",
+        "LA": "",
+        "MD": "",
+        "ME": "",
+        "MA": "",
+        "MN": "",
+        "MI": "",
+        "MS": "",
+        "MO": "",
+        "MT": "",
+        "NC": "",
+        "NE": "",
+        "NV": "",
+        "NH": "",
+        "NJ": "",
+        "NY": "",
+        "ND": "",
+        "NM": "",
+        "OH": "",
+        "OK": "",
+        "OR": "",
+        "PA": "",
+        "RI": "",
+        "SC": "",
+        "SD": "",
+        "TN": "",
+        "TX": "",
+        "UT": "",
+        "WI": "",
+        "VA": "",
+        "VT": "",
+        "WA": "",
+        "WV": "",
+        "WY": "",
+        "CA": "",
+        "CT": "",
+        "AK": "",
+        "AR": "",
+        "AL": ""
+    };
+
     for (var i = 0; i < state_list.length; i ++) {
         var current_state_synonyms = state_list[i];
         var current_state_name = current_state_synonyms[0];
@@ -174,7 +230,7 @@ router.get('/', function(req, res, next) {
 
         console.log("QUERY IS: " + local_query);
 
-        handle_http_request(local_query, result_list, return_url, current_state_code, res);
+        handle_http_request(local_query, result_list, return_data, return_url, current_state_code, res);
 
         /*http.get(local_query, function(response) {
 
@@ -208,7 +264,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-function handle_http_request(local_query, result_list, return_url, current_state_code, res) {
+function handle_http_request(local_query, result_list, return_data, return_url, current_state_code, res) {
 
     http.get(local_query, function(response) {
 
@@ -221,12 +277,13 @@ function handle_http_request(local_query, result_list, return_url, current_state
             var result = {"state":current_state_code,
                 "count":json_response.response.numFound};
             result_list.push(result);
+            return_data[current_state_code] = json_response.response.numFound;
 
             if (result_list.length == state_list.length) {
                 console.log("RES ABOUT TO BE SENT");
                 res.json({
                     "solr_url":return_url,
-                    "state_list":result_list,
+                    "state_list":return_data,
                     "error":"none"
                 });
             }
