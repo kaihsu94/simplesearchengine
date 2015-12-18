@@ -166,16 +166,11 @@ router.get('/', function(req, res, next) {
     var return_url = base_url += "&rows=" + num_of_results;
     return_url += "&wt=json&indent=true";
 
-    base_url += "&rows=10000&wt=json&indent=true";
+    var test_url = base_url.replace("soxkeepyouwarm.davidtowson.com",
+        "localhost");
 
-
-    //var test_url = "http://soxkeepyouwarm.davidtowson.com:8983/solr/project_c/select?" +
-    //    "q=text_en%3A" + query + "%0A";
-    var test_url = "http://localhost:8983/solr/project_c/select?" +
-        "q=text_en%3A" + query.replace(' ', '%2B') + "%0A";
-
-    // &fq=location%3A+(*new%5C+york*)      new york
-    // &fq=location%3A+(*New%5C+York*+OR+*N.Y*) New York or N.Y
+    //var test_url = "http://localhost:8983/solr/project_c/select?" +
+    //    "q=text_en%3A" + query.replace(' ', '%2B') + "%0A";
 
     var result_list = [];
 
