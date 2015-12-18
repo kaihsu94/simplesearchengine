@@ -176,7 +176,7 @@ router.get('/', function(req, res, next) {
 
         http.get(local_query, function(response) {
 
-            console.log("reached sucessCallback, response is: " + JSON.stringify(response));
+            console.log("reached sucessCallback, response is: " + response);
 
             //var result = {"state":current_state,
             //    "count":response.numFound};
