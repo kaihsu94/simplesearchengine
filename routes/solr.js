@@ -158,13 +158,6 @@ router.get('/', function(req, res, next) {
     // &fq=location%3A+(*new%5C+york*)      new york
     // &fq=location%3A+(*New%5C+York*+OR+*N.Y*) New York or N.Y
 
-
-    /*res.json({
-        "solr_url":"test",
-        "state_list":"test",
-        "error":"none"
-    });*/
-
     var result_list = [];
 
     for (var i = 0; i < state_list.length; i ++) {
@@ -182,15 +175,9 @@ router.get('/', function(req, res, next) {
 
         http.get(local_query, function(response) {
 
-            /*res.json({
-                "solr_url":"test",
-                "state_list":"test",
-                "error":"none"
-            });*/
-
             console.log("Got response: " + response.statusCode);
 
-            response.on("data", function(chunk) {
+            response.on("data", function(chunk, current_state_name) {
                 var json_response = JSON.parse(chunk);
                 console.log("BODY: " + json_response.responseHeader.status);
                 //console.log("num found is: " + json_response.response.numFound);
@@ -213,10 +200,6 @@ router.get('/', function(req, res, next) {
         });
 
     }
-
-
-
-
 
 
 });
