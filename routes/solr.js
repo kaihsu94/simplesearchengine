@@ -151,7 +151,7 @@ router.get('/', function(req, res, next) {
 
     //var test_url = "http://soxkeepyouwarm.davidtowson.com:8983/solr/project_c/select?" +
     //    "q=text_en%3A" + query + "%0A";
-    var test_url = "localhost:8983/solr/project_c/select?" +
+    var test_url = "http://localhost:8983/solr/project_c/select?" +
         "q=text_en%3A" + query + "%0A";
 
     // &fq=location%3A+(*new%5C+york*)      new york
