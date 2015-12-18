@@ -22,7 +22,14 @@ var map_usa = new Datamap({
         'Light Democrat': '#A9C0DE',
         'Heavy Republican': '#CA5E5B',
         'Light Republican': '#EAA9A8',
-        defaultFill: '#2B60DE'
+
+        'defaultFill': '#2B60DE',
+        'no_tweets': '#C2DFFF',
+        'very_few_tweets': '#82CAFA',
+        'few_tweets': '#6495ED',
+        'some_tweets': '#1589FF',
+        'many_tweets': '#306EFF',
+        'very_many_tweets': '#2B65EC'
     },
     data:{
         "AZ": {
@@ -301,206 +308,224 @@ function query_server(facet_status) {
 
 }
 
+function get_fill(num_of_tweets) {
+
+    if (num_of_tweets == 0) {
+        return "no_tweets";
+    } else if (num_of_tweets < 5) {
+        return "very_few_tweets";
+    } else if (num_of_tweets < 10) {
+        return "few_tweets";
+    } else if (num_of_tweets < 25) {
+        return "some_tweets";
+    } else if (num_of_tweets < 50) {
+        return "many_tweets";
+    } else {
+        return "very_many_tweets";
+    }
+
+}
+
 function update_map(state_list) {
     map_usa.updateChoropleth({
         "AZ": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['AZ']),
             "electoralVotes": state_list['AZ']
         },
         "CO": {
-            "fillKey": "Light Democrat",
+            "fillKey": get_fill(state_list['CO']),
             "electoralVotes": state_list['CO']
         },
         "DE": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['DE']),
             "electoralVotes": state_list['DE']
         },
         "FL": {
-            "fillKey": "UNDECIDED",
+            "fillKey": get_fill(state_list['FL']),
             "electoralVotes": state_list['FL']
         },
         "GA": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['GA']),
             "electoralVotes": state_list['GA']
         },
         "HI": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['HI']),
             "electoralVotes": state_list['HI']
         },
         "ID": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['ID']),
             "electoralVotes": state_list['ID']
         },
         "IL": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['IL']),
             "electoralVotes": state_list['IL']
         },
         "IN": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['IN']),
             "electoralVotes": state_list['IN']
         },
         "IA": {
-            "fillKey": "Light Democrat",
+            "fillKey": get_fill(state_list['IA']),
             "electoralVotes": state_list['IA']
         },
         "KS": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['KS']),
             "electoralVotes": state_list['KS']
         },
         "KY": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['KY']),
             "electoralVotes": state_list['KY']
         },
         "LA": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['LA']),
             "electoralVotes": state_list['LA']
         },
         "MD": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['MD']),
             "electoralVotes": state_list['MD']
         },
         "ME": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['ME']),
             "electoralVotes": state_list['ME']
         },
         "MA": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['MA']),
             "electoralVotes": state_list['MA']
         },
         "MN": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['MN']),
             "electoralVotes": state_list['MN']
         },
         "MI": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['MI']),
             "electoralVotes": state_list['MI']
         },
         "MS": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['MS']),
             "electoralVotes": state_list['MS']
         },
         "MO": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['MO']),
             "electoralVotes": state_list['MO']
         },
         "MT": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['MT']),
             "electoralVotes": state_list['MT']
         },
         "NC": {
-            "fillKey": "Light Republican",
+            "fillKey": get_fill(state_list['NC']),
             "electoralVotes": state_list['NC']
         },
         "NE": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['NE']),
             "electoralVotes": state_list['NE']
         },
         "NV": {
-            "fillKey": "Heavy Democrat",
+            "fillKey": get_fill(state_list['NV']),
             "electoralVotes": state_list['NV']
         },
         "NH": {
-            "fillKey": "Light Democrat",
+            "fillKey": get_fill(state_list['NH']),
             "electoralVotes": state_list['NH']
         },
         "NJ": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['NJ']),
             "electoralVotes": state_list['NJ']
         },
         "NY": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['NY']),
             "electoralVotes": state_list['NY']
         },
         "ND": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['ND']),
             "electoralVotes": state_list['ND']
         },
         "NM": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['NM']),
             "electoralVotes": state_list['NM']
         },
         "OH": {
-            "fillKey": "UNDECIDED",
+            "fillKey": get_fill(state_list['OH']),
             "electoralVotes": state_list['OH']
         },
         "OK": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['OK']),
             "electoralVotes": state_list['OK']
         },
         "OR": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['OR']),
             "electoralVotes": state_list['OR']
         },
         "PA": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['PA']),
             "electoralVotes": state_list['PA']
         },
         "RI": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['RI']),
             "electoralVotes": state_list['RI']
         },
         "SC": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['SC']),
             "electoralVotes": state_list['SC']
         },
         "SD": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['SD']),
             "electoralVotes": state_list['SD']
         },
         "TN": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['TN']),
             "electoralVotes": state_list['TN']
         },
         "TX": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['TX']),
             "electoralVotes": state_list['TX']
         },
         "UT": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['UT']),
             "electoralVotes": state_list['UT']
         },
         "WI": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['WI']),
             "electoralVotes": state_list['WI']
         },
         "VA": {
-            "fillKey": "Light Democrat",
+            "fillKey": get_fill(state_list['VA']),
             "electoralVotes": state_list['VA']
         },
         "VT": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['VT']),
             "electoralVotes": state_list['VT']
         },
         "WA": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['WA']),
             "electoralVotes": state_list['WA']
         },
         "WV": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['WV']),
             "electoralVotes": state_list['WV']
         },
         "WY": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['WY']),
             "electoralVotes": state_list['WY']
         },
         "CA": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['CA']),
             "electoralVotes": state_list['CA']
         },
         "CT": {
-            "fillKey": "Democrat",
+            "fillKey": get_fill(state_list['CT']),
             "electoralVotes": state_list['CT']
         },
         "AK": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['AK']),
             "electoralVotes": state_list['AK']
         },
         "AR": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['AR']),
             "electoralVotes": state_list['AR']
         },
         "AL": {
-            "fillKey": "Republican",
+            "fillKey": get_fill(state_list['AL']),
             "electoralVotes": state_list['AL']
         }
     });
