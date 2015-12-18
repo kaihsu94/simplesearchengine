@@ -130,7 +130,7 @@ var map_usa = new Datamap({
             "electoralVotes": 32
         },
         "NY": {
-            "fillKey": "Democrat",
+            "fillKey": "defaultFill",
             "electoralVotes": 32
         },
         "ND": {
