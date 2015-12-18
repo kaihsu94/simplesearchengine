@@ -180,13 +180,13 @@ router.get('/', function(req, res, next) {
 
             console.log("reached sucessCallback, response is: " + JSON.stringify(response));
 
-            var result = {"state":current_state,
-                "count":response.numFound};
+            //var result = {"state":current_state,
+            //    "count":response.numFound};
 
             result_list.append(result);
 
-            console.log("current state" + current_state +
-                " num found is: " + response.numFound);
+            //console.log("current state" + current_state +
+            //    " num found is: " + response.numFound);
 
         }, function errorCallback(err) {
 
