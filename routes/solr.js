@@ -181,10 +181,18 @@ router.get('/', function(req, res, next) {
             res.on("data", function(chunk) {
                 var json_response = JSON.parse(chunk);
                 console.log("BODY: " + chunk);
-                console.log("num found is: " + json_response.response.numFound);
+                //console.log("num found is: " + json_response.response.numFound);
                 var result = {"state":current_state_name,
-                "count":chunk.response.numFound};
+                "count":json_response.response.numFound};
                 result_list.append(result);
+
+                if (result_list.length == state_list.length) {
+                    res.json({
+                        "solr_url":return_url,
+                        "state_list":result_list,
+                        "error":"none"
+                    });
+                }
             });
 
         }).on('error', function(e) {
@@ -193,10 +201,7 @@ router.get('/', function(req, res, next) {
 
     }
 
-    res.json({
-        "solr_url":return_url,
-        "state_list":result_list
-    });
+
 
 
 
