@@ -95,6 +95,29 @@ router.get('/', function(req, res, next) {
     var base_url = "http://soxkeepyouwarm.davidtowson.com:8983/solr/project_c/select?";
 
 
+    var is_trump = trump_selected == 'true';
+    var is_bush = trump_selected == 'true';
+    var is_carson = trump_selected == 'true';
+    var is_christie = trump_selected == 'true';
+    var is_cruz = trump_selected == 'true';
+    var is_clinton = trump_selected == 'true';
+
+
+    if (is_trump){
+        base_url += "%2BTrump";
+    } else if (is_bush) {
+        base_url += "%2Bush";
+    } else if (is_carson) {
+        base_url += "%2BCarson";
+    } else if (is_christie) {
+        base_url += "%2BChristie";
+    } else if (is_cruz) {
+        base_url += "%2BCruz";
+    } else if (is_clinton) {
+        base_url += "%2BClinton";
+    }
+
+
     var is_eng = eng_selected == 'true';
     var is_de = de_selected == 'true';
     var is_es = es_selected == 'true';

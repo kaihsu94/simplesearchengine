@@ -96,8 +96,8 @@
       <file leaf-file-name="solr.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/solr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.962963">
-              <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.537037">
+              <caret line="116" column="31" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -832,8 +832,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/solr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.962963">
-          <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.537037">
+          <caret line="116" column="31" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
           <folding />
         </state>
       </provider>
