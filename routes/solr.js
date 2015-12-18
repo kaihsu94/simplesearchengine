@@ -174,18 +174,26 @@ router.get('/', function(req, res, next) {
 
         console.log("QUERY IS: " + local_query);
 
-        http.get(local_query, function(response) {
+        http.get(local_query, function(res) {
 
-            console.log("reached sucessCallback, response is: " + response);
+            console.log("Got response: " + res.statusCode);
+
+            res.on("data", function(chunk) {
+                console.log("BODY: " + chunk);
+            });
+
+            //console.log("reached sucessCallback, response is: " + response);
 
             //var result = {"state":current_state,
             //    "count":response.numFound};
 
-            result_list.append(result);
+            //result_list.append(result);
 
             //console.log("current state" + current_state +
             //    " num found is: " + response.numFound);
 
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
         });
 
         /*$.ajax({
