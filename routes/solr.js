@@ -180,45 +180,16 @@ router.get('/', function(req, res, next) {
 
             res.on("data", function(chunk) {
                 console.log("BODY: " + chunk);
+                console.log("num found is: " + chunk.response.numFound);
+                var result = {"state":current_state_name,
+                "count":chunk.response.numFound};
+                result_list.append(result);
             });
-
-            //console.log("reached sucessCallback, response is: " + response);
-
-            //var result = {"state":current_state,
-            //    "count":response.numFound};
-
-            //result_list.append(result);
-
-            //console.log("current state" + current_state +
-            //    " num found is: " + response.numFound);
 
         }).on('error', function(e) {
             console.log("Got error: " + e.message);
         });
 
-        /*$.ajax({
-            method: 'GET',
-            url: local_query
-        }).then(function successCallback(response) {
-
-            console.log("reached sucessCallback, response is: " + JSON.stringify(response));
-
-            //var result = {"state":current_state,
-            //    "count":response.numFound};
-
-            result_list.append(result);
-
-            //console.log("current state" + current_state +
-            //    " num found is: " + response.numFound);
-
-        }, function errorCallback(err) {
-
-            console.log("CALLBACK ERROR FROM SOLR REQUEST");
-            res.json({
-                "solr_url": err
-            });
-
-        });*/
     }
 
     res.json({
