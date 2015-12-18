@@ -10,7 +10,7 @@ var map_usa = new Datamap({
         highlightBorderColor: '#bada55',
         popupTemplate: function(geography, data) {
             return '<div class="hoverinfo">' + geography.properties.name +
-                'tweets: ' +  data.electoralVotes + ' '
+                ' tweets: ' +  data.electoralVotes + ' '
         },
         highlightBorderWidth: 3
     },
