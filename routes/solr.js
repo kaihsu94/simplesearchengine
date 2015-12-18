@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var $ = require('jquery');
+var http = require('http');
 //var solr = require('solr-client');
 //var client = solr.createClient();
 /* GET users listing. */
@@ -173,7 +174,21 @@ router.get('/', function(req, res, next) {
 
         console.log("QUERY IS: " + local_query);
 
-        $.ajax({
+        http.get(local_query, function(response) {
+
+            console.log("reached sucessCallback, response is: " + JSON.stringify(response));
+
+            //var result = {"state":current_state,
+            //    "count":response.numFound};
+
+            result_list.append(result);
+
+            //console.log("current state" + current_state +
+            //    " num found is: " + response.numFound);
+
+        });
+
+        /*$.ajax({
             method: 'GET',
             url: local_query
         }).then(function successCallback(response) {
@@ -195,7 +210,7 @@ router.get('/', function(req, res, next) {
                 "solr_url": err
             });
 
-        });
+        });*/
     }
 
     res.json({
