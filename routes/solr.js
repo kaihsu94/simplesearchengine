@@ -181,7 +181,7 @@ router.get('/', function(req, res, next) {
             res.on("data", function(chunk) {
                 var json_response = JSON.parse(chunk);
                 console.log("BODY: " + chunk);
-                console.log("num found is: " + json_response.response);
+                console.log("num found is: " + json_response.response.numFound);
                 var result = {"state":current_state_name,
                 "count":chunk.response.numFound};
                 result_list.append(result);

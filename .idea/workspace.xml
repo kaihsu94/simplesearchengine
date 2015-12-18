@@ -97,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/routes/solr.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.5">
-              <caret line="183" column="60" selection-start-line="183" selection-start-column="60" selection-end-line="183" selection-end-column="60" />
+              <caret line="183" column="78" selection-start-line="183" selection-start-column="78" selection-end-line="183" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -852,7 +852,7 @@
     <entry file="file://$PROJECT_DIR$/routes/solr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5">
-          <caret line="183" column="60" selection-start-line="183" selection-start-column="60" selection-end-line="183" selection-end-column="60" />
+          <caret line="183" column="78" selection-start-line="183" selection-start-column="78" selection-end-line="183" selection-end-column="78" />
           <folding />
         </state>
       </provider>
