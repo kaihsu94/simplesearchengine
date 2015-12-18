@@ -184,7 +184,7 @@ router.get('/', function(req, res, next) {
                 //console.log("num found is: " + json_response.response.numFound);
                 var result = {"state":current_state_name,
                 "count":json_response.response.numFound};
-                result_list.append(result);
+                result_list.push(result);
 
                 if (result_list.length == state_list.length) {
                     res.json({
