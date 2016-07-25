@@ -6,3 +6,4 @@ into a geographical map of America , and populated each state with a color and c
 Written by Kai Hsu and David Towson
 
 full product details here : https://drive.google.com/file/d/0B0cV85k21RV0ajQ2VWk5ZlVQa2s/view?usp=sharing
+Example youtube video : https://www.youtube.com/watch?v=f9CRoK9aVLQ
